@@ -3,38 +3,31 @@
 </head>
 
 <body>
-	<div class="login">
-		{{loginButtons align="right"}}
+	<div class="container">
+		<div class="span12 column">{{loginButtons}}</div>
+		<div class="row">
+			{{> entry}}
+			{{> messages}}
+		</div>
 	</div>
-	{{> entry}}
-	{{> messages}}
 </body>
 
 
 <template name="entry">
-	<input type="text" id="entry">
+	<div class="span6">
+		<input type="text" id="entry">
+	</div>
 </template>
-
-
-
-<template name="users">
-	{{#each users}}
-	{{> user}}
-	{{/each}}
-</template>
-
-<template name="user">
-	<p><img src={{ services.google.picture }}>{{profile.name}}</p>
-</template>
-
 
 
 <template name="messages">
-	{{#each messages}}
-	{{> message}}
-	{{/each}}
+	<div class="span6">
+		{{#each messages}}
+		{{> message}}
+		{{/each}}
+	</div>	
 </template>
 
 <template name="message">
-	<p><img src={{avatar}}>{{ text }} | {{_id}}</p>
+	<p><img src={{avatar}}>{{created}} {{text}} </p>
 </template>

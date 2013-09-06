@@ -1,4 +1,5 @@
 console.log 'server start'
+Messages = new Meteor.Collection("messages")
 
 # cleanup
 Messages.remove({})
@@ -7,10 +8,11 @@ Messages.remove({})
 Messages.insert
 	text: 'hello world'
 	avatar: ''
+	when: new Date()
 
 # publish all
 Meteor.publish 'messages', ->
-	Messages.find()
+	Messages.find {}
 
 Meteor.publish null, ->
 	Meteor.users.find {},
@@ -21,12 +23,8 @@ Meteor.publish null, ->
 Meteor.methods
 	'addMessage': (message) ->
 		if message
-			user = Meteor.user()
-			avatar = 'img/anon.png'
-			if user? and user.services?
-				avatar = user.services.google.picture
-			Messages.insert {
+			Messages.insert 
 				text: message
-				avatar: avatar
-			}
+				user: Meteor.user()
+				when: new Date()
 			message = ''

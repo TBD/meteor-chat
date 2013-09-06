@@ -1,9 +1,5 @@
+Messages = new Meteor.Collection("messages")
 Meteor.subscribe 'messages'
-
-# --- messages
-
-Template.messages.messages = ->
-	Messages.find().fetch()
 
 Template.entry.events = 
 	'keydown': (event, template) -> 
@@ -20,9 +16,19 @@ Template.entry.rendered = ->
 		at: '@'
 		data: ['TBD', 'Bot', 'Test']
 
-# --- users
 
-Template.users.users = ->
-	Meteor.users.find()
 
+Template.messages.messages = ->
+	Messages.find()
+
+Template.message.helpers
+	avatar: ->
+		user = @.user
+		if user? and user.services?
+			user.services.google.picture
+		else
+			'img/anon.png'
+	created: ->
+		time = moment @.when;
+		time.format('h:mm a');
 

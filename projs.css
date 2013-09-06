@@ -1,20 +1,20 @@
-/* CSS declarations go here */
-.login {
-	float:right;
+body {
+	font-family: 'Lato', sans-serif !important;
 }
+
 input {
 	width: 400px;
 	border: 1px solid black;
 }
 
 img {
-	width: 30px;
-	height: 30px;
-	border-radius: 30px;
-	border: 2px solid #666;
+	width: 20px;
+	height: 20px;
+	border-radius: 20px;
+	box-shadow: 0 0 3px #000;
 	margin-right: 10px;
-	position: relative;
-	top: 10px;
 }
 
 .atwho-view{position:absolute;top:0;left:0;display:none;margin-top:18px;background:#fff;border:1px solid #DDD;border-radius:3px;box-shadow:0 0 5px rgba(0,0,0,.1);min-width:120px;z-index:10}.atwho-view .cur{background:#36F;color:#fff}.atwho-view .cur small{color:#fff}.atwho-view strong{color:#36F}.atwho-view .cur strong{color:#fff;font:bold}.atwho-view ul{list-style:none;padding:0;margin:auto}.atwho-view ul li{display:block;padding:5px 10px;border-bottom:1px solid #DDD;cursor:pointer}.atwho-view small{font-size:smaller;color:#777;font-weight:400}
+
+#login-buttons {float:right;}

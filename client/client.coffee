@@ -17,7 +17,6 @@ Template.entry.rendered = ->
 		data: ['TBD', 'Bot', 'Test']
 
 
-
 Template.messages.messages = ->
 	Messages.find()
 
@@ -27,8 +26,11 @@ Template.message.helpers
 		if user? and user.services?
 			user.services.google.picture
 		else
-			'img/anon.png'
+			'/img/anon.png'
 	created: ->
 		time = moment @.when;
-		time.format('h:mm a');
-
+		time.format('D.MMM H:mm');
+	text: ->
+		text = @.text
+		text = text.replace(/#([a-z\d_]+)/ig, '<a href="/topic/$1">#$1</a>')
+		text.replace(/@([a-z\d_]+)/ig, '<a href="/user/$1">@$1</a>')

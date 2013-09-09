@@ -6,7 +6,7 @@ Messages.remove({})
 
 # start items
 Messages.insert
-	text: 'hello world'
+	text: 'hello world @tw @fb #test #personal'
 	avatar: ''
 	when: new Date()
 
@@ -27,4 +27,3 @@ Meteor.methods
 				text: message
 				user: Meteor.user()
 				when: new Date()
-			message = ''

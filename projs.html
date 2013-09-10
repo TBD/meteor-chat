@@ -4,21 +4,24 @@
 
 <body>
 	<div class="container">
+		<a href="/">home</a>
 		<div class="span12 column">{{loginButtons}}</div>
 		<div class="row">
-			{{> entry}}
-			{{> messages}}
+			{{renderPage}}
 		</div>
 	</div>
 </body>
 
+<template name="home">
+	{{> entry}}
+	{{> messages}}
+</template>
 
 <template name="entry">
 	<div class="span6">
 		<input type="text" id="entry">
 	</div>
 </template>
-
 
 <template name="messages">
 	<div class="span6">
@@ -30,4 +33,14 @@
 
 <template name="message">
 	<p><img src={{avatar}}>{{created}} {{{text}}} </p>
+</template>
+
+<template name="user">
+	<h1>{{userName}}</h1>
+	{{> messages}}
+</template>
+
+<template name="topic">
+	<h1>#{{topicName}}</h1>
+	{{> messages}}
 </template>

@@ -6,7 +6,12 @@ Messages.remove({})
 
 # start items
 Messages.insert
-	text: 'hello world @tw @fb #test #personal'
+	text: 'hello world from @tbd cc @tw @fb #test #personal'
+	avatar: ''
+	when: new Date()
+
+Messages.insert
+	text: 'another message'
 	avatar: ''
 	when: new Date()
 

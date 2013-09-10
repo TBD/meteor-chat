@@ -12,3 +12,4 @@ accounts-base
 coffeescript
 bootstrap
 moment
+router

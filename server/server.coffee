@@ -1,19 +1,22 @@
 console.log 'server start'
 Messages = new Meteor.Collection("messages")
 
-# cleanup
-Messages.remove({})
+dev_cleanup = ->
+	# cleanup
+	Messages.remove({})
 
-# start items
-Messages.insert
-	text: 'hello world from @tbd cc @tw @fb #test #personal'
-	avatar: ''
-	when: new Date()
+	# start items
+	Messages.insert
+		text: 'hello world from @tbd cc @tw @fb #test #personal'
+		avatar: ''
+		when: new Date()
 
-Messages.insert
-	text: 'another message'
-	avatar: ''
-	when: new Date()
+	Messages.insert
+		text: 'another message'
+		avatar: ''
+		when: new Date()
+
+# dev_cleanup()
 
 # publish all
 Meteor.publish 'messages', ->
